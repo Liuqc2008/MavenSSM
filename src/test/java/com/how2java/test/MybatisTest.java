@@ -2,6 +2,7 @@ package com.how2java.test;
 
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,10 @@ import com.how2java.pojo.Category;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")
 public class MybatisTest {
-
 	@Autowired
 	private CategoryMapper categoryMapper;
 
-
+	@Ignore
 	@Test
 	public void testList() {
 		PageHelper.offsetPage(0, 5);
@@ -32,4 +32,12 @@ public class MybatisTest {
 		System.out.println(new PageInfo<Category>(cs).getTotal());
 	}
 
+	@Ignore
+	@Test
+	public void testGetById() {
+		PageHelper.offsetPage(0, 5);
+		Category cs=categoryMapper.get(1);
+		System.out.println(cs.getClass());
+	
+	}
 }
