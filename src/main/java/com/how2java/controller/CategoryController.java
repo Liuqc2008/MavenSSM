@@ -33,8 +33,23 @@ public class CategoryController {
 		// 放入转发参数
 		mav.addObject("cs", cs);
 		// 放入jsp路径
-		mav.setViewName("listCategory");
+		mav.setViewName("jsp/listCategory");
 		return mav;
 	}
 
+	@RequestMapping("form")
+	public ModelAndView form(){
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("jsp/form");
+		return mav;
+	}
+	
+	@RequestMapping("layui")
+	public ModelAndView layui(){
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("jsp/layui");
+		return mav;
+	}
 }
