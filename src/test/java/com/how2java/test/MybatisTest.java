@@ -1,7 +1,9 @@
 package com.how2java.test;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -72,5 +74,20 @@ public class MybatisTest {
 		model.setId(85);
 		model.setCreateDate(new Date());
 		accountMapper.update(model);
+	}
+	
+	@Ignore
+	@Test
+	public void testAccountList() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		//map.put("name", "x");
+		//map.put("password", "1234");
+		map.put("startTime", "2018-09-01 01:20:19");
+		map.put("endTime", "2018-09-20 11:20:19");
+		List<Account> accountList=accountMapper.list(map);
+		System.out.println(accountList.getClass());
+		for (Account c : accountList) {
+			System.out.println(c.getName());
+		}
 	}
 }
