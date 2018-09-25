@@ -2,6 +2,8 @@ package com.how2java.pojo;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Account {
 	private Integer id;
     private String name;
@@ -32,6 +34,7 @@ public class Account {
         this.password = password == null ? null : password.trim();
     }
     
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     public Date getCreateDate() {
         return createDate;
     }
