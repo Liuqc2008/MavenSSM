@@ -34,7 +34,7 @@ public class Account {
         this.password = password == null ? null : password.trim();
     }
     
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     public Date getCreateDate() {
         return createDate;
     }

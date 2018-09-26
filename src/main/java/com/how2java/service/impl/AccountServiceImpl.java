@@ -18,4 +18,20 @@ public class AccountServiceImpl  implements AccountService{
 	public List<Account> list(Map<String, Object> map){
 		return accountMapper.list(map);
 	}
+	
+	public Account get(int id){
+		return accountMapper.get(id);
+	}
+	
+    public int add(Account account){
+    	return accountMapper.add(account);
+    }
+    
+    public int update(Account account){
+    	return accountMapper.update(account);
+    }
+      
+    public int delete(int id){
+    	return accountMapper.delete(id);
+    }
 }

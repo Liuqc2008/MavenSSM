@@ -22,7 +22,7 @@ public class CategoryController {
 	CategoryService categoryService;
 
 	@RequestMapping("listCategory")
-	public String listCategory(Page page,Model model){
+	public String listCategory(Page page, Model model){
 	
 		PageHelper.offsetPage(page.getStart(),5);
 		List<Category> cs= categoryService.list();

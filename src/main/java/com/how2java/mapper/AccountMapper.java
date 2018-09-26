@@ -6,13 +6,13 @@ import java.util.Map;
 import com.how2java.pojo.Account;
 
 public interface AccountMapper {
+	public List<Account> list(Map<String, Object> map);
+	
+	public Account get(int id); 
+	
     public int add(Account account);  
+    
+    public int update(Account account);  
       
-    public void delete(int id);  
-      
-    public Account get(int id);  
-      
-    public int update(Account account);   
-      
-    public List<Account> list(Map<String, Object> map);
+    public int delete(int id);  
 }
