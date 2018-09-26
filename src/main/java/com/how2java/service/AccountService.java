@@ -9,6 +9,8 @@ public interface AccountService {
 
 	public List<Account> list(Map<String, Object> map);
 	
+	public int count(Map<String, Object> map);
+	
 	public Account get(int id); 
 	
     public int add(Account account);  

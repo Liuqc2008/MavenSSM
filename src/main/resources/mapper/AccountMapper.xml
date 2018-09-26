@@ -18,7 +18,28 @@
         	<if test="endTime !=null and endTime !='' ">
             	and createDate <![CDATA[ <= ]]> #{endTime}
         	</if>
-        </where>	
+        </where>
+        <if test="page !=null and page !='' ">
+        	limit ${(page -1) * limit}, ${limit}
+        </if>
+	</select>
+	
+	<select id="count" parameterType="Map" resultType="java.lang.Integer">
+	   	select count(id) from account
+	   	<where>
+	   		<if test="name !=null and name !='' ">
+				and name like CONCAT('%',#{name},'%') 
+			</if>
+        	<if test="password !=null and password !='' ">
+            	and password = #{password}
+        	</if>  	
+        	<if test="startTime !=null and startTime !='' ">
+            	and createDate <![CDATA[ >= ]]> #{startTime}
+        	</if>
+        	<if test="endTime !=null and endTime !='' ">
+            	and createDate <![CDATA[ <= ]]> #{endTime}
+        	</if>
+        </where>
 	</select>
 	
   	<select id="get" parameterType="_int" resultType="Account">

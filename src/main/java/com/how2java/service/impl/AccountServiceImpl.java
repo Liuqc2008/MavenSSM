@@ -19,6 +19,10 @@ public class AccountServiceImpl  implements AccountService{
 		return accountMapper.list(map);
 	}
 	
+	public int count(Map<String, Object> map){
+		return accountMapper.count(map);
+	}
+	
 	public Account get(int id){
 		return accountMapper.get(id);
 	}

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.how2java.pojo.Account;
@@ -42,10 +43,8 @@ public class CommonController {
 	
 	@RequestMapping(value="/AccountList", method= RequestMethod.GET)
 	@ResponseBody
-	public Object AccountList(int page, int limit, HttpServletRequest request) throws Exception {
-		//http://localhost/MavenSSM/Common/AccountList?page=1&limit=10&key%5Bname%5D=X&key%5Bpassword%5D=
-		//http://localhost/MavenSSM/Common/AccountList?page=1&limit=10&key[name]=x&key[password]=
-		String urlParam = request.getQueryString();
+	public Object AccountList(@RequestParam(defaultValue="0")int page, @RequestParam(defaultValue="0")int limit, HttpServletRequest request) throws Exception {
+		String urlParam = request.getQueryString() == null ? "" : request.getQueryString();
 		
 		PageData pageData = new PageData();
 		Map<String, Object> requestParam = urlParamToMap(URLDecoder.decode(urlParam, "UTF-8"));	
@@ -56,10 +55,10 @@ public class CommonController {
 		map.put("startTime", requestParam.get("startTime"));
 		map.put("endTime", requestParam.get("endTime"));
 		
-		List<Account> account= accountService.list(map);
+		List<Account> account= accountService.list(requestParam);
 		
 		pageData.setData(account);
-		pageData.setCount(account.size());
+		pageData.setCount(accountService.count(requestParam));
 		
 		return pageData;
 	}
@@ -75,7 +74,10 @@ public class CommonController {
 		    	if(pair[0].indexOf("key") >=0)
 		    		pair[0] = pair[0].replace("key[", "").replace("]", "");
 		    	
-		    	hashMap.put(pair[0], pair[1]);
+		    	if(pair[0].equals("page") || pair[0].equals("limit"))
+		    		hashMap.put(pair[0], Integer.parseInt(pair[1]));
+	    		else
+		    		hashMap.put(pair[0], pair[1]);
 		    }
 		}
 		
