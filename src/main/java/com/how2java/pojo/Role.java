@@ -2,6 +2,8 @@ package com.how2java.pojo;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Role {
     private Integer id;
 
@@ -35,6 +37,7 @@ public class Role {
         this.desc = desc == null ? null : desc.trim();
     }
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     public Date getCreateDate() {
         return createDate;
     }

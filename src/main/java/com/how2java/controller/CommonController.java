@@ -18,6 +18,7 @@ import com.how2java.pojo.Category;
 import com.how2java.pojo.PageData;
 import com.how2java.service.AccountService;
 import com.how2java.service.CategoryService;
+import com.how2java.service.RoleService;
 
 @Controller
 @RequestMapping("Common")
@@ -27,6 +28,9 @@ public class CommonController {
 	
 	@Autowired
 	AccountService accountService;
+	
+	@Autowired
+	RoleService roleService;
 
 	@RequestMapping("/CategoryList")
 	@ResponseBody
@@ -50,6 +54,19 @@ public class CommonController {
 		
 		pageData.setData(accountService.list(requestParam));
 		pageData.setCount(accountService.count(requestParam));
+		return pageData;
+	}
+	
+	@RequestMapping(value="/RoleList", method= RequestMethod.GET)
+	@ResponseBody
+	public Object RoleList(@RequestParam(defaultValue="0")int page, @RequestParam(defaultValue="0")int limit, HttpServletRequest request) throws Exception {
+		String urlParam = request.getQueryString() == null ? "" : request.getQueryString();
+		PageData pageData = new PageData();
+		
+		Map<String, Object> requestParam = urlParamToMap(URLDecoder.decode(urlParam, "UTF-8"));	
+		
+		pageData.setData(roleService.list(requestParam));
+		pageData.setCount(roleService.count(requestParam));
 		return pageData;
 	}
 	
