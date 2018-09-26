@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.how2java.pojo.Account;
 import com.how2java.pojo.Category;
 import com.how2java.pojo.PageData;
 import com.how2java.service.AccountService;
@@ -45,21 +44,12 @@ public class CommonController {
 	@ResponseBody
 	public Object AccountList(@RequestParam(defaultValue="0")int page, @RequestParam(defaultValue="0")int limit, HttpServletRequest request) throws Exception {
 		String urlParam = request.getQueryString() == null ? "" : request.getQueryString();
-		
 		PageData pageData = new PageData();
+		
 		Map<String, Object> requestParam = urlParamToMap(URLDecoder.decode(urlParam, "UTF-8"));	
-		Map<String, Object> map = new HashMap<String, Object>();
-
-		map.put("name", requestParam.get("name"));
-		map.put("password", requestParam.get("password"));
-		map.put("startTime", requestParam.get("startTime"));
-		map.put("endTime", requestParam.get("endTime"));
 		
-		List<Account> account= accountService.list(requestParam);
-		
-		pageData.setData(account);
+		pageData.setData(accountService.list(requestParam));
 		pageData.setCount(accountService.count(requestParam));
-		
 		return pageData;
 	}
 	
