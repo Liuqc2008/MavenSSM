@@ -1,16 +1,20 @@
 package com.how2java.mapper;
 
-import com.how2java.pojo.Role;
 import java.util.List;
+import java.util.Map;
+
+import com.how2java.pojo.Role;
 
 public interface RoleMapper {
-    int deleteByPrimaryKey(Integer id);
+	List<Role> list(Map<String, Object> map);
+	
+	int count(Map<String, Object> map);
+	
+	Role getById(int id);  
+	
+	int add(Role role);
 
-    int insert(Role record);
-
-    Role selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(Role record);
-
-    int updateByPrimaryKey(Role record);
+	int update(Role role);
+	    
+    int delete(Integer id);
 }
