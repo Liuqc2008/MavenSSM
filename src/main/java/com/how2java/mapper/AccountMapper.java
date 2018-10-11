@@ -12,6 +12,8 @@ public interface AccountMapper {
 	
 	public Account get(int id); 
 	
+	public Account getById(int id); 
+	
     public int add(Account account);  
     
     public int update(Account account);  

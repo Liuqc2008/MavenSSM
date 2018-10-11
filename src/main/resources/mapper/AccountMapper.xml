@@ -2,6 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.how2java.mapper.AccountMapper">
+	<resultMap id="AccountBean" type="Account">    
+    	<id column="id" property="id"/>    
+    	<result column="name" property="name"/>    
+    	<result column="password" property="password"/>    
+    	<result column="createDate" property="createDate"/>    
+    	<collection property="roles" ofType="com.how2java.pojo.Role">
+          	<id column="roleid" property="id" />
+            <result column="rolename" property="name" />
+            <result column="roledesc" property="desc" />
+            <result column="rolecreateDate" property="createDate" />
+       	</collection>
+	</resultMap>  
+	
+	<select id="getById" parameterType="_int" resultMap="AccountBean">
+  		 select account.*, 
+  				role.id as roleid, 
+  				role.name as rolename, 
+  				role.desc as roledesc, 
+  				role.createDate as rolecreateDate  
+  		   from account 
+	  left join role on role.id in(select roleid from accountrole where accountid = account.id)
+		  where account.id = #{id}    	
+	</select>
+	
 	<select id="list" parameterType="Map" resultType="Account">
 	   	select id, name, password, createDate
 	   		from account

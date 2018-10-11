@@ -1,6 +1,7 @@
 package com.how2java.pojo;
 
 import java.util.Date;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -9,8 +10,10 @@ public class Account {
     private String name;
     private String password;
     private Date createDate;
+    
+    private List<Role> roles;
 
-    public Integer getId() {
+	public Integer getId() {
         return id;
     }
 
@@ -41,5 +44,18 @@ public class Account {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+    
+    public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+	
+	@Override
+    public String toString() {
+        return "Product [id=" + id + ", name=" + name + ", password=" + password + ", createDate=" + createDate + "]";
     }
 }

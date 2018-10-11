@@ -17,6 +17,7 @@ public class AccountController {
 	@Autowired
 	AccountService accountService;
 	
+	//http://localhost/MavenSSM/Account/AccountList
 	@RequestMapping(value="AccountList")
 	public String listCategory(){
 

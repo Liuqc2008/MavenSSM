@@ -45,4 +45,9 @@ public class Role {
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
+    
+    @Override
+    public String toString() {
+        return "Role [id=" + id + ", name=" + name + ", desc=" + desc + ", createDate=" + createDate + "]";
+    }
 }
