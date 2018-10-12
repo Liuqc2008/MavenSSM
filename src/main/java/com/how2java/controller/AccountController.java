@@ -19,8 +19,8 @@ public class AccountController {
 	
 	//http://localhost/MavenSSM/Account/AccountList
 	@RequestMapping(value="AccountList")
-	public String listCategory(){
-
+	public String listCategory() throws Exception{
+		
 		return "jsp/Account/AccountList";
 	}
 	

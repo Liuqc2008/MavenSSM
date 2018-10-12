@@ -31,6 +31,7 @@ public class AccountServiceImpl  implements AccountService{
 	}
 	
     public int add(Account account){
+    	account.setCreateDate(new Date());
     	return accountMapper.add(account);
     }
     

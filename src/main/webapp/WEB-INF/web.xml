@@ -4,16 +4,6 @@
          xmlns:web="http://java.sun.com/xml/ns/javaee" 
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	
-	<!-- spring的配置文件-->
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:applicationContext.xml</param-value>
-	</context-param>
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-	
-	
 	<!-- spring mvc核心：分发servlet -->
 	<servlet>
 		<servlet-name>mvc-dispatcher</servlet-name>
@@ -21,13 +11,23 @@
 		<!-- spring mvc的配置文件 -->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:springMVC.xml</param-value>
+			<param-value>classpath:springconfig/spring-web.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	
+	<!-- spring的配置文件-->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:springconfig/spring-*.xml</param-value>
+	</context-param>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
 	<servlet-mapping>
 		<servlet-name>mvc-dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
 </web-app>
