@@ -48,13 +48,13 @@ $.extend({
                 }
                 if (result.Tag == -999) {
                   //layer.msg("<font style='color:blcak'>收货信息重复，请重新填写</font>", { icon: 2, time: 1000 });
-                    alert(result.Message);
+                	layer.alert(result.Message);
                     if (errorHandle)
                         errorHandle();
                     
                     return;
                 } else if (result.Tag == -998) {
-                    alert("提交的信息存在安全隐患！");
+                	layer.alert("提交的信息存在安全隐患！");
                     if (errorHandle)
                         errorHandle();
                     
@@ -69,9 +69,9 @@ $.extend({
                     errorHandle();
                 var data = eval("(" + XMLHttpRequest.responseText + ")");
                 if (data.Tag == -999) {
-                    alert(errorThrown + "\n" + data.Message);
+                	layer.alert(errorThrown + "\n" + data.Message);
                 } else {
-                    alert(errorThrown + "\n" + XMLHttpRequest.responseText);
+                	layer.alert(errorThrown + "\n" + XMLHttpRequest.responseText);
                 }
                 
             }, complete: function (XMLHttpRequest, T) {

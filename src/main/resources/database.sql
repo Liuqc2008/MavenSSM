@@ -29,3 +29,11 @@ CREATE TABLE `accountrole` (
   	roleid int(11) NOT NULL,
   	PRIMARY KEY (`accountid`,`roleid`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+
+CREATE TABLE `systemlog` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+  	`name` varchar(255) NOT NULL DEFAULT'',
+  	`detail`text,
+  	`createDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  	PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

@@ -15,7 +15,7 @@
   	
   	<script type="text/javascript" src="/MavenSSM/Resource/Script/jquery-3.3.1.min.js"></script>
   	<script type="text/javascript" src="/MavenSSM/Resource/Script/extend.js"></script>
-  	<script type="text/javascript" src="/MavenSSM/Resource/Script/Ajax.js"></script>
+  	<script type="text/javascript" src="/MavenSSM/Resource/Script/Ajax.js?v1"></script>
   	
   	<script type="text/javascript" src="/MavenSSM/Resource/Script/layui/layui.js"></script>
   	<!--  

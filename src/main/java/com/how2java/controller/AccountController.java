@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.how2java.pojo.Account;
 import com.how2java.service.AccountService;
+import com.how2java.util.exception.AlertException;
 
 @Controller
 @RequestMapping("Account")
@@ -20,7 +21,7 @@ public class AccountController {
 	//http://localhost/MavenSSM/Account/AccountList
 	@RequestMapping(value="AccountList")
 	public String listCategory() throws Exception{
-		
+
 		return "jsp/Account/AccountList";
 	}
 	
@@ -34,7 +35,8 @@ public class AccountController {
 	
 	@RequestMapping(value="Add", method= RequestMethod.POST)
 	@ResponseBody
-	public Object Add(Account model){
+	public Object Add(Account model) throws AlertException{
+		
 		int result = accountService.add(model);
 		return result;
 	}
@@ -42,6 +44,7 @@ public class AccountController {
 	@RequestMapping(value="Update", method= RequestMethod.POST)
 	@ResponseBody
 	public Object Update(Account model){
+		
 		int result = accountService.update(model);
 		return result;
 	}

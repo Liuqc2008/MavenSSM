@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.how2java.util.exception.CustomException;
+import com.how2java.util.exception.AlertException;
 
 @Controller
 public class ExceptionController {
@@ -12,10 +12,9 @@ public class ExceptionController {
 	//测试抛出自定义异常  
 	@RequestMapping("/throwCustomException")
 	public ModelAndView  throwCustomException() throws Exception{
-		throw new CustomException("一个自定义异常发生了!");
+		throw new AlertException("一个自定义异常发生了!");
 		
 	}
-
 	 
 	//测试抛出系统异常
 	@RequestMapping("/throwUnknownException")

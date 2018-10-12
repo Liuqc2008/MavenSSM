@@ -15,6 +15,9 @@
    	<context:annotation-config />
 	<context:component-scan base-package="com.how2java.service" />
 	<aop:aspectj-autoproxy/>  
+	<context:annotation-config />
+	
+	<context:component-scan base-package="com.how2java.util.exception" />
     
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.how2java.mapper"/>
