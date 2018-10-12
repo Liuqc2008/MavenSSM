@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.how2java.mapper.AccountMapper;
 import com.how2java.pojo.Account;
+import com.how2java.service.AccountService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")
@@ -20,6 +21,9 @@ public class MybatisAccountTest {
 	@Autowired
 	private AccountMapper accountMapper;
 	
+	@Autowired
+	
+	private AccountService accountService;
 	@Ignore
 	@Test
 	public void testAccountList() {
@@ -42,4 +46,10 @@ public class MybatisAccountTest {
 		System.out.println(account1);
 	}
 	
+	//@Ignore
+	@Test
+	public void testTransaction() {
+		accountService.transactionAdd();
+		
+	}
 }

@@ -18,4 +18,6 @@ public interface AccountService {
     public int update(Account account);  
       
     public int delete(int id);  
+    
+    public void transactionAdd();
 }
