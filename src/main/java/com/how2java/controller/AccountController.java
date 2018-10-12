@@ -14,7 +14,7 @@ import com.how2java.util.exception.AlertException;
 
 @Controller
 @RequestMapping("Account")
-public class AccountController {
+public class AccountController extends BaseController{
 	@Autowired
 	AccountService accountService;
 	
