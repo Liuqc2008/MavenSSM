@@ -12,7 +12,13 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
     <context:annotation-config/>
-   	<mvc:annotation-driven />
+   	<mvc:annotation-driven >
+       <mvc:message-converters register-defaults="true">
+          <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+             <property name="supportedMediaTypes" value="text/plain;charset=UTF-8" />
+          </bean>
+       </mvc:message-converters>   
+    </mvc:annotation-driven>
     <mvc:default-servlet-handler />
 	<mvc:resources mapping="/Resource/**" location="/WEB-INF/Resource/" /> 
 

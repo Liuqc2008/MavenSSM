@@ -46,7 +46,7 @@ public class MybatisAccountTest {
 		System.out.println(account1);
 	}
 	
-	//@Ignore
+	@Ignore
 	@Test
 	public void testTransaction() {
 		accountService.transactionAdd();
