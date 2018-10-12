@@ -37,14 +37,11 @@ public class MybatisAccountTest {
 	//Ignore
 	@Test
 	public void testGetById() {
-		Account account = accountMapper.getById(84);
-		
+		Account account = accountMapper.get(84);
 		System.out.println(account);
-        List<Role> roleList = account.getRoles();
-        for (Role role : roleList) {
-        	System.out.println("\t" + role);
-        }
-       
+        
+		Account account1 = accountMapper.get(84);
+		System.out.println(account1);
 	}
 	
 }
