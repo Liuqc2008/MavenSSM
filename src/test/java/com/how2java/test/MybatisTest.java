@@ -29,7 +29,7 @@ public class MybatisTest {
 	@Autowired
 	private AccountMapper accountMapper;
 
-	
+	@Ignore
 	@Test
 	public void testList() {
 		PageHelper.offsetPage(0, 5);

@@ -21,7 +21,7 @@ public class MybatisRoleTest {
 	@Autowired
 	private RoleMapper roleMapper;
 	
-	//@Ignore
+	@Ignore
 	@Test
 	public void testAccountList() {
 		Map<String, Object> map = new HashMap<String, Object>();
