@@ -12,12 +12,15 @@ import org.springframework.transaction.annotation.Transactional;
 import com.how2java.mapper.AccountMapper;
 import com.how2java.pojo.Account;
 import com.how2java.service.AccountService;
+import com.how2java.util.annotation.Log;
 
 @Service
+
 public class AccountServiceImpl  implements AccountService{
 	@Autowired
 	AccountMapper accountMapper;
 	
+	//@Log(title="查询数据列表", action="AccountServiceImpl/list")
 	public List<Account> list(Map<String, Object> map){
 		return accountMapper.list(map);
 	}
@@ -31,10 +34,12 @@ public class AccountServiceImpl  implements AccountService{
 	}
 	
     public int add(Account account){
+
     	account.setCreateDate(new Date());
     	return accountMapper.add(account);
     }
     
+    @Log(title="修改用户信息", action="AccountServiceImpl/update")
     public int update(Account account){
     	return accountMapper.update(account);
     }
