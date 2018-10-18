@@ -16,7 +16,7 @@ import com.how2java.pojo.Account;
 import com.how2java.service.AccountService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:applicationContext.xml")
+@ContextConfiguration("classpath:springconfig/spring-*.xml")
 public class MybatisAccountTest {
 	@Autowired
 	private AccountMapper accountMapper;

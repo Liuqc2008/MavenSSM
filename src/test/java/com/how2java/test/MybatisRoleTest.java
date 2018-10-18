@@ -16,7 +16,7 @@ import com.how2java.mapper.RoleMapper;
 import com.how2java.pojo.Role;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:applicationContext.xml")
+@ContextConfiguration("classpath:springconfig/spring-*.xml")
 public class MybatisRoleTest {
 	@Autowired
 	private RoleMapper roleMapper;

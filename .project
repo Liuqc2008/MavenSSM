@@ -3,6 +3,8 @@
 	<name>MavenSSM</name>
 	<comment></comment>
 	<projects>
+		<project>infrastructure</project>
+		<project>weixinapi</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

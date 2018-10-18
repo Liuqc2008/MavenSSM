@@ -21,7 +21,7 @@ import com.how2java.pojo.Account;
 import com.how2java.pojo.Category;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:applicationContext.xml")
+@ContextConfiguration("classpath:springconfig/spring-*.xml")
 public class MybatisTest {
 	@Autowired
 	private CategoryMapper categoryMapper;
