@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import infrastructure.web.WebUtil;
+import weixin.sdk.api.JsSDKApi;
 import weixin.sdk.api.WeixinOauth2Api;
 
 @Controller
@@ -23,7 +24,6 @@ public class WeixinController extends BaseController{
 	 * */
 	@RequestMapping(value="Login")
 	public String Login(Model model) throws Exception{
-
 		String returnUrl = URLEncoder.encode("http://313624981.tunnel.qydev.com/MavenSSM/Weixin/Oauth", "UTF-8");
 		String url = WeixinOauth2Api.GetUrl(returnUrl, "snsapi_userinfo");
 		
@@ -35,25 +35,31 @@ public class WeixinController extends BaseController{
 	 * 微信授权回调页面
 	 */
 	@RequestMapping("Oauth")
-	public ModelAndView Oauth() throws Exception{
-		HttpServletRequest request = WebUtil.getHttpServletRequest();
-		
-		ModelAndView mav = new ModelAndView();
+	public String Oauth(Model model, HttpServletRequest request) throws Exception{
 		HashMap<String,String> param = WebUtil.GetRequestParam(request.getQueryString());
-		String code = 	param.get("code").toString();
+		Map<String, Object>  userinfo = WeixinOauth2Api.GetUserInfoByCode(param.get("code").toString());
 		
-		Map<String, Object>  userinfo = WeixinOauth2Api.GetUserInfoByCode(code);
+		model.addAttribute("country", userinfo.get("country"));
+		model.addAttribute("province", userinfo.get("province"));
+		model.addAttribute("city", userinfo.get("city"));
+		model.addAttribute("sex", userinfo.get("sex"));
+		model.addAttribute("nickname", userinfo.get("nickname"));
+		model.addAttribute("headimgurl", userinfo.get("headimgurl"));
+		model.addAttribute("language", userinfo.get("language"));
+		model.addAttribute("openid", userinfo.get("openid"));
+		model.addAttribute("privilege", userinfo.get("privilege"));
 		
-		mav.addObject("country", userinfo.get("country"));
-		mav.addObject("province", userinfo.get("province"));
-		mav.addObject("city", userinfo.get("city"));
-		mav.addObject("sex", userinfo.get("sex"));
-		mav.addObject("nickname", userinfo.get("nickname"));
-		mav.addObject("headimgurl", userinfo.get("headimgurl"));
-		mav.addObject("language", userinfo.get("language"));
-		mav.addObject("openid", userinfo.get("openid"));
-		mav.addObject("privilege", userinfo.get("privilege"));
-		mav.setViewName("jsp/Weixin/oauth");
-		return mav;
+		return "jsp/Weixin/oauth";
+	}
+	
+	/*
+	 * http://313624981.tunnel.qydev.com/MavenSSM/Weixin/jssdk
+	 * */
+	@RequestMapping("jssdk")
+	public String jssdk(Model model) throws Exception{
+		Map<String, String> map = JsSDKApi.GetSign("http://313624981.tunnel.qydev.com/MavenSSM/Weixin/jssdk");
+		model.addAttribute("sign", map);
+
+		return "jsp/Weixin/jssdk";
 	}
 }
