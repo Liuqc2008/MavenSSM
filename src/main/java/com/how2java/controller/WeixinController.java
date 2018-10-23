@@ -20,7 +20,7 @@ import weixin.sdk.api.WeixinOauth2Api;
 public class WeixinController extends BaseController{
 
 	/*
-	 * 授权页面
+	 * 授权页面	http://313624981.tunnel.qydev.com/MavenSSM/Weixin/Login
 	 * */
 	@RequestMapping(value="Login")
 	public String Login(Model model) throws Exception{
