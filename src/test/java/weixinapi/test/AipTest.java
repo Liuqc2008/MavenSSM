@@ -9,7 +9,9 @@ import org.junit.Test;
 
 import com.alibaba.fastjson.JSON;
 
-import weixin.sdk.api.WeixinOauth2Api;
+import apiclient.sdk.weixin.api.WeixinOauth2Api;
+
+
 
 public class AipTest {
 	

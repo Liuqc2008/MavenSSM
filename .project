@@ -5,6 +5,7 @@
 	<projects>
 		<project>infrastructure</project>
 		<project>weixinapi</project>
+		<project>ApiClient</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

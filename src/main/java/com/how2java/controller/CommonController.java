@@ -19,7 +19,6 @@ import com.how2java.pojo.PageData;
 import com.how2java.service.AccountService;
 import com.how2java.service.CategoryService;
 import com.how2java.service.RoleService;
-import com.how2java.util.annotation.Log;
 
 @Controller
 @RequestMapping("Common")

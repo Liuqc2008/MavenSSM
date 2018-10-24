@@ -19,8 +19,8 @@ public class ExceptionController {
 	//测试抛出系统异常
 	@RequestMapping("/throwUnknownException")
 	public ModelAndView throwUnknownException() throws Exception{
-		String a = null;
-		System.out.println(a.length());
+		//String a = null;
+		//System.out.println(a.length());
 		
 		return null;
 	}

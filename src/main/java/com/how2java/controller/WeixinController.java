@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
+import apiclient.sdk.weixin.api.JsSDKApi;
+import apiclient.sdk.weixin.api.WeixinOauth2Api;
 import infrastructure.web.WebUtil;
-import weixin.sdk.api.JsSDKApi;
-import weixin.sdk.api.WeixinOauth2Api;
+
 
 @Controller
 @RequestMapping("Weixin")
