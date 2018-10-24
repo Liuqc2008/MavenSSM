@@ -1,4 +1,4 @@
-package com.how2java.util.exception;
+package com.how2java.aspect;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +14,10 @@ import com.alibaba.fastjson.support.spring.FastJsonJsonView;
 import com.how2java.mapper.SystemLogMapper;
 import com.how2java.pojo.SystemLog;
 
+import infrastructure.exception.AlertException;
+
 public class CustomExceptionHandlerResolver implements HandlerExceptionResolver {
+	
 	@Autowired
 	private SystemLogMapper systemLogMapper;
 	

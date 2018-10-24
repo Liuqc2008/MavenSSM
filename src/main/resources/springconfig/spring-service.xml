@@ -25,5 +25,5 @@
 	</bean>
 
 	<!-- 自定义处理器异常解析器 -->
-	<bean class="com.how2java.util.exception.CustomExceptionHandlerResolver" />
+	<bean class="com.how2java.aspect.CustomExceptionHandlerResolver" />
 </beans>
