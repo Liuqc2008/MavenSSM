@@ -36,7 +36,7 @@ public class WeixinController extends BaseController{
 	 */
 	@RequestMapping("Oauth")
 	public String Oauth(Model model, HttpServletRequest request) throws Exception{
-		HashMap<String,String> param = WebUtil.GetRequestParam(request.getQueryString());
+		Map<String,String> param = WebUtil.GetParameterMap(request.getQueryString());
 		Map<String, Object>  userinfo = WeixinOauth2Api.GetUserInfoByCode(param.get("code").toString());
 		
 		model.addAttribute("country", userinfo.get("country"));

@@ -50,8 +50,8 @@
 		var layer;
 		layui.use(['form', 'layedit'], function(){
 			var form = layui.form,
-			 layedit = layui.layedit,
-			 layer = layui.layer;
+		 	layedit = layui.layedit,
+			layer = layui.layer;
 			
 			//监听提交
 	        form.on('submit(Submit)', function (data) {
