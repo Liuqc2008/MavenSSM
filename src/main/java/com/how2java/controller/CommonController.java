@@ -15,10 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.how2java.pojo.Category;
-import com.how2java.pojo.PageData;
 import com.how2java.service.AccountService;
 import com.how2java.service.CategoryService;
 import com.how2java.service.RoleService;
+
+import infrastructure.common.PageData;
 
 @Controller
 @RequestMapping("Common")

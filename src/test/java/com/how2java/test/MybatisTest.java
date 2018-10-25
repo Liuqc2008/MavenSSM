@@ -12,10 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.how2java.mapper.AccountMapper;
 import com.how2java.mapper.CategoryMapper;
+import com.how2java.mapper.CommonMapper;
 
 import com.how2java.pojo.Account;
 import com.how2java.pojo.Category;
@@ -29,6 +31,18 @@ public class MybatisTest {
 	@Autowired
 	private AccountMapper accountMapper;
 
+	@Autowired
+	private CommonMapper commonMapper;
+	
+	//@Ignore
+	@Test
+	public void CommonTest() {
+		String sql = "select * from account ";
+		Object data = commonMapper.executeSql(sql);
+		
+		System.out.println( JSONObject.toJSONString(data) );
+	}
+	
 	@Ignore
 	@Test
 	public void testList() {
