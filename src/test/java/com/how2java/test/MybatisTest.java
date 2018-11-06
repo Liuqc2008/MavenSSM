@@ -34,7 +34,7 @@ public class MybatisTest {
 	@Autowired
 	private CommonMapper commonMapper;
 	
-	//@Ignore
+	@Ignore
 	@Test
 	public void CommonTest() {
 		String sql = "select * from account ";

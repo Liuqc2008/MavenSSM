@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Reps>
+  <Rep key="Test2_GetAccountList" Remark="获取门店取现原因列表">
+    <ReportSql>
+      <![CDATA[
+        SELECT *
+         from role
+        WHERE @Param 
+      ]]>
+    </ReportSql>
+    <TotalSql>
+      <![CDATA[
+        SELECT COUNT(usId)
+        FROM  tb_users 
+        WHERE @Param
+      ]]>
+    </TotalSql>
+    <Dynamic property="@Param">
+      <c property="Id" prepend="AND" type="">
+        <![CDATA[
+          usId=@Id
+        ]]>
+      </c>
+      <c property="Name" prepend="And" type="">
+        <![CDATA[
+          usName like CONCAT('%',@Name,'%')
+        ]]>
+      </c>
+    </Dynamic>
+    <OrderSql>
+      <![CDATA[
+         Order By usId DESC
+      ]]>
+    </OrderSql>
+  </Rep>
+  
+  
+</Reps>
