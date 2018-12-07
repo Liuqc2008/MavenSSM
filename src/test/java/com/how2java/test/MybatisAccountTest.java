@@ -41,9 +41,6 @@ public class MybatisAccountTest {
 	public void testGetById() {
 		Account account = accountMapper.get(84);
 		System.out.println(account);
-        
-		Account account1 = accountMapper.get(84);
-		System.out.println(account1);
 	}
 	
 	@Ignore
