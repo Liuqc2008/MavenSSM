@@ -11,7 +11,7 @@ import org.junit.Test;
 public class LambdaTest {
 
 	
-	//@Ignore
+	@Ignore
 	@Test
 	public void MapToJsonStringTest(){
 		String[] atp = {"Rafael Nadal", "Novak Djokovic",  

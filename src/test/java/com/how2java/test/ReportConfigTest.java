@@ -24,7 +24,7 @@ import org.junit.Test;
 
 public class ReportConfigTest {
 
-	//@Ignore
+	@Ignore
 	@Test
 	public void LoadXml() throws Exception {
 		DocumentBuilderFactory builderFactory= DocumentBuilderFactory.newInstance();
